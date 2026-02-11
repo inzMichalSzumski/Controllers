@@ -39,8 +39,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = "Controllers",
             ValidAudience = "Controllers",
-            // BAD PRACTICE: Secret key is hardcoded in source code.
-                    IssuerSigningKey = new SymmetricSecurityKey(
+            // BAD PRACTICE: Secret key is hardcoded in source code. Shoudl be stored securely (eg Azure Key Vault)
+            IssuerSigningKey = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes("x7G#kP9$mN2@vQ5wL8^jR4&tY6*hB3!zX"))
         };
     });
